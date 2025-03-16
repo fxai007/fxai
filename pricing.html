@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FXAI - Subscription & Pricing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", sans-serif; background-color: #f8f9fa; color: #333; text-align: center; }
+        
+        /* Header and Navigation */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #ffffff; border-bottom: 1px solid #e0e0e0; position: relative; }
+        .menu-icon { font-size: 1.8rem; cursor: pointer; }
+        .nav-menu { display: none; position: absolute; top: 60px; right: 20px; background: #ffffff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); border-radius: 8px; padding: 15px; text-align: left; }
+        .nav-menu a { display: block; margin: 10px 0; font-size: 1rem; padding: 10px 12px; border-radius: 5px; background: #f3f3f3; text-decoration: none; color: #333; transition: background 0.3s; }
+        .nav-menu a:hover { background: #10a37f; color: #ffffff; }
+
+        /* Pricing Section */
+        .container { max-width: 1200px; margin: auto; padding: 40px 5%; background: #ffffff; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); margin-top: 40px; }
+        .container h2 { color: #10a37f; margin-bottom: 20px; }
+        .pricing-plans { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .plan { width: 32%; background: #f9f9f9; padding: 25px; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); text-align: center; margin-top: 20px; }
+        .plan h3 { color: #10a37f; font-size: 1.5rem; margin-bottom: 10px; }
+        .plan p { font-size: 1.1rem; color: #555; }
+        .price { font-size: 2rem; font-weight: bold; margin: 15px 0; }
+        .btn { padding: 12px 25px; background: #10a37f; color: #ffffff; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s; font-weight: 500; margin-top: 15px; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #0e8a6e; }
+
+        /* Feature List */
+        .feature-list { text-align: left; margin-top: 20px; }
+        .feature-list ul { list-style: none; padding: 0; }
+        .feature-list ul li { font-size: 1rem; padding: 8px 0; display: flex; align-items: center; }
+        .feature-list ul li::before { content: "✔"; color: #10a37f; margin-right: 8px; font-weight: bold; }
+
+        /* Footer */
+        .footer { padding: 20px; background: #ffffff; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .pricing-plans { flex-direction: column; align-items: center; }
+            .plan { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>FXAI</h2>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <div id="nav-menu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trade-analysis.html">AI Trade Analysis</a>
+        <a href="pricing.html">Subscription & Pricing</a>
+        <a href="profile.html">User Profile</a>
+        <a href="faq.html">Help Center</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <div class="container">
+        <h2>Choose Your Plan</h2>
+        <p>Unlock the power of AI-driven trading with FXAI.</p>
+
+        <div class="pricing-plans">
+            <div class="plan">
+                <h3>Free Trial</h3>
+                <p>7-day free access</p>
+                <p class="price">$0</p>
+                <a href="signup.html" class="btn">Start Free Trial</a>
+                <div class="feature-list">
+                    <ul>
+                        <li>AI-powered trade analysis</li>
+                        <li>Market insights & alerts</li>
+                        <li>Limited daily AI requests</li>
+                        <li>No premium trade signals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="plan" style="border: 2px solid #10a37f;">
+                <h3>Pro Plan</h3>
+                <p>Best for active traders</p>
+                <p class="price">$25/month</p>
+                <a href="signup.html" class="btn">Subscribe Now</a>
+                <div class="feature-list">
+                    <ul>
+                        <li>AI-powered trade analysis</li>
+                        <li>Unlimited AI requests</li>
+                        <li>Premium trade signals</li>
+                        <li>Advanced AI trade explanations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="plan">
+                <h3>Lifetime Access</h3>
+                <p>One-time payment</p>
+                <p class="price">$999</p>
+                <a href="signup.html" class="btn">Get Lifetime Access</a>
+                <div class="feature-list">
+                    <ul>
+                        <li>AI-powered trade analysis</li>
+                        <li>Unlimited AI requests</li>
+                        <li>Premium trade signals</li>
+                        <li>One-time payment, lifetime access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 FXAI | <a href="index.html">Back to Home</a> | <a href="mailto:support@fxai.com">Contact Support</a></p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("nav-menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

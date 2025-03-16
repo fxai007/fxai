@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FXAI - AI Trade Analysis</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", sans-serif; background-color: #f8f9fa; color: #333; text-align: center; }
+        
+        /* Header and Navigation */
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #ffffff; border-bottom: 1px solid #e0e0e0; position: relative; }
+        .menu-icon { font-size: 1.8rem; cursor: pointer; }
+        .nav-menu { display: none; position: absolute; top: 60px; right: 20px; background: #ffffff; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); border-radius: 8px; padding: 15px; text-align: left; }
+        .nav-menu a { display: block; margin: 10px 0; font-size: 1rem; padding: 10px 12px; border-radius: 5px; background: #f3f3f3; text-decoration: none; color: #333; transition: background 0.3s; }
+        .nav-menu a:hover { background: #10a37f; color: #ffffff; }
+
+        /* Main Content */
+        .container { max-width: 800px; margin: auto; padding: 40px 5%; background: #ffffff; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); margin-top: 40px; }
+        .container h2 { color: #10a37f; margin-bottom: 20px; }
+
+        /* Upload Box */
+        .upload-box { background: #f9f9f9; padding: 30px; border-radius: 10px; margin-bottom: 20px; }
+        .upload-box input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; }
+        .btn { width: 100%; padding: 12px; background: #10a37f; color: #ffffff; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s; font-weight: 500; margin-top: 10px; }
+        .btn:hover { background: #0e8a6e; }
+        
+        /* AI Analysis Result */
+        .result-section { display: none; padding: 30px; background: #f9f9f9; border-radius: 10px; margin-top: 20px; text-align: left; }
+        .footer { padding: 20px; background: #ffffff; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>FXAI</h2>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <div id="nav-menu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trade-analysis.html">AI Trade Analysis</a>
+        <a href="pricing.html">Subscription & Pricing</a>
+        <a href="profile.html">User Profile</a>
+        <a href="faq.html">Help Center</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <div class="container">
+        <h2>AI Trade Analysis</h2>
+        <p>Upload your chart images (multi-timeframe) and let FXAI analyze trends, timeframes, and key levels to generate a high-probability trade setup.</p>
+
+        <div class="upload-box">
+            <input type="file" id="chartUpload" multiple accept="image/*">
+            <button class="btn" onclick="analyzeTrade()">Analyze Trade</button>
+            <button class="btn" onclick="clearAnalysis()" style="background: #d9534f;">Clear</button>
+        </div>
+
+        <div id="loadingMessage" style="display: none; color: #555; font-size: 1.1rem; margin-top: 15px;">🔍 Analyzing chart patterns, trends, and price action...</div>
+
+        <div id="analysisResult" class="result-section"></div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 FXAI | <a href="index.html">Back to Home</a> | <a href="mailto:support@fxai.com">Contact Support</a></p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("nav-menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        function analyzeTrade() {
+            var files = document.getElementById("chartUpload").files;
+            var resultSection = document.getElementById("analysisResult");
+            var loadingMessage = document.getElementById("loadingMessage");
+            resultSection.innerHTML = "";
+
+            if (files.length < 3) {
+                resultSection.innerHTML = "<p>Please upload at least three charts for multi-timeframe analysis.</p>";
+                resultSection.style.display = "block";
+                return;
+            }
+
+            // Show loading message for up to 10 seconds
+            loadingMessage.style.display = "block";
+
+            setTimeout(() => {
+                loadingMessage.style.display = "none";
+
+                let winRate = Math.random() * 100; // Simulate AI confidence level
+                let priceActionSuggestions = [
+                    "Wait for a clear break of resistance before entering.",
+                    "Look for rejection at a key support area before confirming entry.",
+                    "Check for accumulation before making a decision.",
+                    "Confirm trend strength on higher timeframes before entering."
+                ];
+                let suggestion = priceActionSuggestions[Math.floor(Math.random() * priceActionSuggestions.length)];
+
+                if (winRate < 75) {
+                    resultSection.innerHTML = `
+                        <div style='padding: 20px; background: #ffffff; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);'>
+                            <h3>AI Trade Setup Not Found (Below 75% Confidence)</h3>
+                            <p>The AI detected uncertain market conditions, making this setup unreliable.</p>
+                            <p><strong>Recommendation:</strong> ${suggestion}</p>
+                        </div>
+                    `;
+                } else {
+                    let entryPrice = (1900 + Math.random() * 50).toFixed(2);
+                    let stopLoss = (entryPrice - Math.random() * 15).toFixed(2);
+                    let takeProfit = (parseFloat(entryPrice) + (parseFloat(entryPrice) - parseFloat(stopLoss)) * 3).toFixed(2);
+                    let riskReward = "1:3";
+
+                    resultSection.innerHTML = `
+                        <div style='padding: 20px; background: #ffffff; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0,0,0,0.1);'>
+                            <h3>AI-Generated Trade Setup (Multi-Timeframe Analysis)</h3>
+                            <p><strong>Entry Price:</strong> ${entryPrice}</p>
+                            <p><strong>Stop-Loss:</strong> ${stopLoss}</p>
+                            <p><strong>Take-Profit:</strong> ${takeProfit}</p>
+                            <p><strong>Risk-Reward Ratio:</strong> ${riskReward}</p>
+                            <h3>Trade Management Suggestion:</h3>
+                            <p>${suggestion}</p>
+                        </div>
+                    `;
+                }
+
+                resultSection.style.display = "block";
+            }, Math.random() * (10000 - 5000) + 5000);
+        }
+
+        function clearAnalysis() {
+            document.getElementById("analysisResult").style.display = "none";
+            document.getElementById("chartUpload").value = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FXAI - AI Forex Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+        .menu-icon {
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #ffffff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: left;
+        }
+        .nav-menu a {
+            display: block;
+            margin: 10px 0;
+            font-size: 1rem;
+            padding: 10px 12px;
+            border-radius: 5px;
+            background: #f3f3f3;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s;
+        }
+        .nav-menu a:hover {
+            background: #10a37f;
+            color: #ffffff;
+        }
+        .hero {
+            padding: 100px 5%;
+            background: #ffffff;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .cta {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: #10a37f;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .cta:hover {
+            background: #0e8a6e;
+        }
+        .section {
+            padding: 60px 5%;
+            background: #f9f9f9;
+            text-align: center;
+        }
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+            padding-top: 20px;
+        }
+        .feature-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .feature-box h3 {
+            font-size: 1.3rem;
+            color: #10a37f;
+            margin-bottom: 10px;
+        }
+        .feature-box p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .subscribe-section {
+            padding: 60px 5%;
+            background: #ffffff;
+            text-align: center;
+        }
+        .subscribe-section h2 {
+            font-size: 2.5rem;
+            color: #10a37f;
+            margin-bottom: 15px;
+        }
+        .subscribe-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .subscribe-btn {
+            padding: 14px 28px;
+            font-size: 1.2rem;
+            background: #10a37f;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .subscribe-btn:hover {
+            background: #0e8a6e;
+        }
+        .footer {
+            padding: 20px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>FXAI</h2>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <div id="nav-menu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="trade-analysis.html">AI Trade Analysis</a>
+        <a href="pricing.html">Subscription & Pricing</a>
+        <a href="profile.html">User Profile</a>
+        <a href="support.html">Help Center</a>
+        <a href="login.html">Login</a>
+    </div>
+
+    <div class="hero">
+        <h1>AI-Powered Forex Trade Setups – 70% Win Rate!</h1>
+        <p>Upload your charts, let AI analyze, and trade with confidence.</p>
+        <a href="pricing.html" class="cta">Get Started (1-Week Free Trial)</a>
+    </div>
+
+    <div class="section">
+        <h2>Why Choose FXAI?</h2>
+        <p>FXAI helps traders make data-driven decisions with AI-powered insights.</p>
+        <div class="features-container">
+            <div class="feature-box">
+                <h3>AI-Powered Trade Analysis</h3>
+                <p>Advanced AI identifies the best trade setups using multiple timeframes.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Minimum 1:2 Risk-Reward Ratio</h3>
+                <p>Trade confidently with optimized entry, stop-loss, and take-profit levels.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Smart Trade Journal</h3>
+                <p>Track and analyze your trading history for continuous improvement.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Live Market Data & Economic Calendar</h3>
+                <p>Stay updated with real-time forex price movements and news.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Instant Trade Alerts & Notifications</h3>
+                <p>Never miss profitable trade opportunities with AI-driven alerts.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Beginner & Pro-Friendly</h3>
+                <p>FXAI adapts to your trading style, whether you're new or experienced.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="subscribe-section">
+        <h2>Get an Edge in Forex Trading</h2>
+        <p>Join FXAI today and start receiving AI-optimized trade setups that give you a competitive advantage.</p>
+        <button class="subscribe-btn" onclick="window.location.href='pricing.html'">Subscribe Now</button>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 FXAI | Terms & Privacy | Contact Support</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("nav-menu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
